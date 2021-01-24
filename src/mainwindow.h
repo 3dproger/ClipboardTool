@@ -15,7 +15,17 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void OnClipboardDataChanged();
+
 private:
+    static QString FormatToStr(QImage::Format format);
+
+    void AddInfoLineStr(const QString& name, const QString& value);
+    void AddInfoLineBool(const QString& name, bool value);
+    void AddInfoLineInt(const QString& name, int64_t value);
+    void AddInfoLine(const QString& line);
+
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H
